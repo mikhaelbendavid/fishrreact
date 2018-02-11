@@ -6,6 +6,8 @@ import './App.css';
 import Ports from './components/Ports.js';
 import AfricaMap from './components/AfricaMap.js';
 import Routes from "./Routes";
+import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import CustomMap from './components/CustomMap.js'
 
 class App extends Component {
   render() {
@@ -27,7 +29,7 @@ class App extends Component {
           </Nav>
         </Navbar.Collapse>
         </Navbar>
-        <AfricaMap />
+        <CustomMap />
         <Ports portCities={[{city:'Adelaide', portId: 'm32f'}, {city:'Seattle', portId: 'dkwe'}, {city:'London', portId: 'mf32'}, {city:'Bolivia Is not A city', portId: 'zovf'}]} />
       </div>
       <Routes />

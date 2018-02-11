@@ -5,10 +5,12 @@ import Ports from "./components/Ports";
 import AppliedRoute from "./components/AppliedRoute";
 import Transactions from "./components/Transactions";
 import Home from "./components/Home";
+import Login from "./components/Login"
 
 export default ({ childProps }) =>
   <Switch>
     <AppliedRoute path="/" exact component={Home} props={childProps} />
     <AppliedRoute path="/map" exact component={Ports} props={childProps} />
     <AppliedRoute path="/transactions" exact component={Transactions} props={childProps} />
+    <AppliedRoute path="/login" exact component={Login} />
   </Switch>

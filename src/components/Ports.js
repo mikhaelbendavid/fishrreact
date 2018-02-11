@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import React, { Component } from "react";
 import { ListGroup, ListGroupItem, PageHeader } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -34,15 +33,17 @@ export default class Ports extends Component {
 
 renderPorts(ports) {
   return [{}].concat(ports).map((port, i) => (
-    <ListGroupItem
+    i !== 0
+      ? ( <ListGroupItem
       key={port.id}
       >
       <Link to={`/ports/${port.id}`}>
         <h4>
-          Name: {port.name}
+          {port.name}
         </h4>{ "Submitted: " }
       </Link>
-    </ListGroupItem>
+    </ListGroupItem> ) :
+    ( <PageHeader>Ports of Call</PageHeader> )
 ))
   }
 

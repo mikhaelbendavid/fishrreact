@@ -15,7 +15,7 @@ export default class Home extends Component {
   render() {
     return(
       <div>
-        <PageHeader>Ports</PageHeader>
+        <PageHeader>Nearby Marketplaces</PageHeader>
         <CustomMap />
 
         <Ports />

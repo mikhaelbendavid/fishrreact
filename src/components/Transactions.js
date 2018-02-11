@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ListGroup, ListGroupItem, PageHeader } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import Create from './Create.js';
 export default class Transactions extends Component {
   constructor(props) {
     super(props);

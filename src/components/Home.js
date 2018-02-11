@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import AfricaMap from "./AfricaMap";
+import Ports from "./Ports";
+import { PageHeader } from "react-bootstrap";
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,7 +15,9 @@ export default class Home extends Component {
   render() {
     return(
       <div>
-        <h1>Hello</h1>
+        <PageHeader>Ports</PageHeader>
+        <AfricaMap />
+        <Ports />
       </div>
     )
   }

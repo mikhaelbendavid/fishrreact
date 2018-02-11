@@ -13,7 +13,6 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <div>
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
           <Navbar.Brand>
@@ -22,15 +21,15 @@ class App extends Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav pullRight eventKey={1}>
-            <NavItem href="/">Home</NavItem>
-            <NavItem href="/fish">Fish</NavItem>
-            <NavItem href="/profile">Profile</NavItem>
+          <Nav pullRight>
+            <RouteNavItem key={1} href="/">Home</RouteNavItem>
+            <RouteNavItem key={2} href="/fish">Fish</RouteNavItem>
+            <RouteNavItem Key={3} href="/transactions">Transactions</RouteNavItem>
           </Nav>
         </Navbar.Collapse>
         </Navbar>
         <CustomMap />
-        <Ports portCities={[{city:'Adelaide', portId: 'm32f'}, {city:'Seattle', portId: 'dkwe'}, {city:'London', portId: 'mf32'}, {city:'Bolivia Is not A city', portId: 'zovf'}]} />
+      
       </div>
       <Routes />
     </div>

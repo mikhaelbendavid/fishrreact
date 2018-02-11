@@ -1,24 +1,58 @@
 import logo from '../logo.svg';
-var React = require('react');
+import React, { Component } from "react";
+import { ListGroup, ListGroupItem, PageHeader } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-class Ports extends React.Component {
+export default class Ports extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      ports: []
+    }
+  }
+
+  componentDidMount() {
+    this.getPorts();
+  }
+
+  getPorts = () => {
+    fetch('http://localhost:3001/api/ports')
+    .then((responseText) => {
+      var response = responseText.json();
+      response.then((response) => {
+        this.setState({
+          ports: response,
+        });
+      });
+    }).then((data) => {
+        console.log('request succeeded', data)
+      }).catch((error) => {
+      console.log('request failed', error)
+    })
+  }
+
+renderPorts(ports) {
+  return [{}].concat(ports).map((port, i) => (
+    <ListGroupItem
+      key={port.id}
+      >
+      <Link to={`/ports/${port.id}`}>
+        <h4>
+          Name: {port.name}
+        </h4>{ "Submitted: " }
+      </Link>
+    </ListGroupItem>
+))
+  }
+
   render() {
     return (
-      <div style={{display: 'flex', flexDirection:'column'}}>
-        {
-          this.props.portCities.map((portCity)=> {
-            return (
-              <div key={portCity.portId} style={{border: '1px solid black', display: 'inline-flex', flexDirection: 'row', justifyContent: 'flex-start'}} >
-                <img src={logo} className="App-logo" alt="logo" style={{border:'1px solid red', display: 'inline'}} />
-                <h5 style={{margin: 0, border: '1px solid red', display: 'inline', textAlign:'center'}} >{portCity.city}</h5>
-              </div>
-
-            )
-          })
-        }
+      <div>
+        <ListGroup>
+            { this.renderPorts(this.state.ports)}
+        </ListGroup>
       </div>
     );
   }
 }
-
-export default Ports;

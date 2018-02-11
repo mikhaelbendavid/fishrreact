@@ -7,6 +7,7 @@ import Transactions from "./components/Transactions";
 import Create from "./components/Create";
 import Complete from "./components/Complete";
 import Home from "./components/Home";
+import Login from "./components/Login"
 
 export default ({ childProps }) =>
   <Switch>
@@ -15,4 +16,5 @@ export default ({ childProps }) =>
     <AppliedRoute path="/transactions" exact component={Transactions} props={childProps} />
     <AppliedRoute path="/transactions/create" exact component={Create} props={childProps} />
     <AppliedRoute path="/transactions/complete" exact component={Complete} props={childProps} />
+    <AppliedRoute path="/login" exact component={Login} />
   </Switch>

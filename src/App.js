@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from "react-router-dom";
+import { Navbar, NavItem, Nav } from "react-bootstrap";
 // import logo from './logo.svg';
 import './App.css';
 import Ports from './components/Ports.js';
 import AfricaMap from './components/AfricaMap.js';
+import Routes from "./Routes";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header> */}
+      <div className="App container">
+        <div>
+        <Navbar fluid collapseOnSelect>
+          <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">Fishr</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight eventKey={1}>
+            <NavItem href="/">Home</NavItem>
+            <NavItem href="/fish">Fish</NavItem>
+            <NavItem href="/profile">Profile</NavItem>
+          </Nav>
+        </Navbar.Collapse>
+        </Navbar>
         <AfricaMap />
         <Ports portCities={[{city:'Adelaide', portId: 'm32f'}, {city:'Seattle', portId: 'dkwe'}, {city:'London', portId: 'mf32'}, {city:'Bolivia Is not A city', portId: 'zovf'}]} />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
+      <Routes />
+    </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

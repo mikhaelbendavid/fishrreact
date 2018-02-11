@@ -46,7 +46,13 @@ export default class Transactions extends Component {
         </Link>
 
       </ListGroupItem> )
-      : ( <PageHeader>Transactions</PageHeader> )
+      : (
+        <ListGroupItem
+              key="new"
+              href="/transactions/create"
+              >
+                <h4><b>{'\uFF0B'}</b>Record Transaction</h4>
+              </ListGroupItem> )
       )
     )
   }
@@ -54,6 +60,7 @@ export default class Transactions extends Component {
   render() {
     return(
       <div>
+        <PageHeader>Transactions</PageHeader>
         <ListGroup>
             { this.renderTransactions(this.state.transactions)}
         </ListGroup>

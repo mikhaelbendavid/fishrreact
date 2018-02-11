@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
-import { Navbar, NavItem, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 // import logo from './logo.svg';
 import './App.css';
-import Ports from './components/Ports.js';
-import AfricaMap from './components/AfricaMap.js';
 import Routes from "./Routes";
+import RouteNavItem from "./components/RouteNavItem";
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import CustomMap from './components/CustomMap.js'
 
@@ -28,9 +27,6 @@ class App extends Component {
           </Nav>
         </Navbar.Collapse>
         </Navbar>
-        <CustomMap />
-      
-      </div>
       <Routes />
     </div>
     );

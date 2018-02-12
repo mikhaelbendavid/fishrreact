@@ -40,7 +40,7 @@ renderPorts(ports) {
       <Link to={`/ports/${port.id}`}>
         <h4>
           {port.name}
-        </h4>{ "Submitted: " }
+        </h4>
       </Link>
     </ListGroupItem> ) :
     ( <PageHeader>Ports of Call</PageHeader> )

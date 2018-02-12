@@ -8,23 +8,25 @@ export default class Fish extends Component {
 
     this.state = {
       port: [],
-      transactions: []
+      transactions: [],
+
     }
   }
 
 
 componentDidMount() {
-  console.log(this.props.transaction)
+  this.getPortTransactions()
 }
 
-getPort = () => {
-  fetch(`http://localhost:3001/api${window.location.pathname}`)
+getPortTransactions = () => {
+  fetch(`http://localhost:3001/api/transactions${window.location.pathname}`)
   .then((responseText) => {
     var response = responseText.json();
     response.then((response) => {
+      console.log(response)
       this.setState({
-        ports: response,
-        transactions: response.transactionInfo
+        transactions: response,
+        port: response.portInfo
       });
     });
   }).then((data) => {
@@ -34,19 +36,18 @@ getPort = () => {
   })
 }
 
-renderTransaction(transactions) {
+renderTransactions(transactions) {
   return [{}].concat(transactions).map((transaction, i) => (
     i !== 0
       ? ( <ListGroupItem
       key={transaction.id}
       >
-      <Link to={`/ports/${this.state.port.id}/${transaction.fishId}`}>
         <h4>
-          {transaction.fish}
+          {transaction.price}
         </h4>Price p/kilo: {transaction.price} Weight (kg): {transaction.weight}
-      </Link>
+
     </ListGroupItem> ) :
-    ( <PageHeader>{this.state.port.name}</PageHeader> )
+    ( <PageHeader>Port Name</PageHeader> )
 ))
   }
 
@@ -54,7 +55,7 @@ renderTransaction(transactions) {
     return (
       <div>
         <ListGroup>
-            { this.renderTransaction(this.state.transactions)}
+            { this.renderTransactions(this.state.transactions)}
         </ListGroup>
       </div>
     );

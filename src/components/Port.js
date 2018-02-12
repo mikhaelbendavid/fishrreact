@@ -47,7 +47,7 @@ export default class Port extends Component {
           </h4>
         </Link>
       </ListGroupItem> ) :
-      ( <PageHeader>Spcies in Port</PageHeader> )
+      ( <PageHeader>Species in Port</PageHeader> )
   ))
     }
 

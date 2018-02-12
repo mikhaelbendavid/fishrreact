@@ -10,7 +10,7 @@ import Fish from "./components/Fish";
 
 import Create from "./components/Create";
 import Complete from "./components/Complete";
-import Home from "./components/Home";
+
 import Login from "./components/Login"
 
 export default ({ childProps }) =>
@@ -19,7 +19,7 @@ export default ({ childProps }) =>
     <AppliedRoute path="/map" exact component={Ports} props={childProps} />
     <AppliedRoute path="/transactions" exact component={Transactions} props={childProps} />
     <AppliedRoute path="/ports/:portId" exact component={Port} props={childProps} />
-    <AppliedRoute path="/ports/:portId/:fishId" exact component={Fish} props={childProps} />
+    <AppliedRoute path="/ports/:portId/:speciesId" exact component={Fish} props={childProps} />
     <AppliedRoute path="/transactions/create" exact component={Create} props={childProps} />
     <AppliedRoute path="/transactions/complete" exact component={Complete} props={childProps} />
     <AppliedRoute path="/login" exact component={Login} />
